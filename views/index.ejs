@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weather Application Home</title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <h1><center>Welcome to the Weather App</center></h1>
+    <br/>
+    <p>Please enter the name of a city and the app will retrieve the weather for you! </p>
+    <div class="container">
+      <fieldset>
+        <form action="/" method="POST">
+          <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+          <input type="submit" class="ghost-button" value="Get Weather">
+        </form>
+      </fieldset>
+        <p><%= weather %></p>
+        <p><%= error %></p>
+    
+    </div>
+    <br>
+    <h2>You can also get the weather in the city where you are right now using the button below </h2>
+    <button id="map" onclick="geoFindMe()">Show my location</button>
+    <div id="out"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+  </body>
+</html>

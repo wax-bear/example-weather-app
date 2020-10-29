@@ -1,11 +1,12 @@
 const request = require("request");
 const { Router } = require("express");
+const { urlTwoLatQuery, urlTwoLongQuery } = require("../configs");
 const router = Router();
 
 router.post("/current", function (req, res) {
   let lat = req.body.latitude;
   let long = req.body.longitude;
-  let url2 = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}`;
+  let url2 = `${urlTwoLatQuery}${lat}${urlTwoLongQuery}${long}`;
   request(url, function (err, _, body) {
     if (err) {
       console.log(err);

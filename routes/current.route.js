@@ -7,6 +7,7 @@ router.post("/current", function (req, res) {
   let lat = req.body.latitude;
   let long = req.body.longitude;
   let url2 = `${urlTwoLatQuery}${lat}${urlTwoLongQuery}${long}`;
+
   request(url, function (err, _, body) {
     if (err) {
       console.log(err);

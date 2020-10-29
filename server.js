@@ -1,4 +1,5 @@
 const express = require("express");
+const { port } = require("./configs");
 
 const app = express();
 
@@ -10,6 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", require("./routes/home.route"));
 app.use("/current", require("./routes/current.route"));
 
-app.listen(4000, function () {
-  console.log("Example app listening on port 4000!");
+app.listen(port, function () {
+  console.log(`Example app listening on port ${port}!`);
 });

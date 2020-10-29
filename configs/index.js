@@ -5,4 +5,5 @@ module.exports = {
   urlOneApiKey: "&units=metric&appid=",
   urlTwoLatQuery: "http://api.openweathermap.org/data/2.5/weather?lat=",
   urlTwoLongQuery: "&lon=",
+  nullValue: null,
 };

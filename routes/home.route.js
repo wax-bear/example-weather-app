@@ -4,8 +4,10 @@ const { apiKey, urlOneApiKey, urlOneCityQuery } = require("../configs");
 
 const router = Router();
 
+const nullValue = null;
+
 router.get("/", (_, res) =>
-  res.render("index", { weather: null, error: null })
+  res.render("index", { weather: nullValue, error: nullValue })
 );
 
 router.post("/", (req, res) => {
@@ -14,7 +16,10 @@ router.post("/", (req, res) => {
 
   request(url, function (err, _, body) {
     if (err) {
-      res.render("index", { weather: null, error: "Error, please try again" });
+      res.render("index", {
+        weather: nullValue,
+        error: "Error, please try again",
+      });
     } else {
       const weatherResponse = JSON.parse(body);
       const { main, name } = weatherResponse;
@@ -23,10 +28,10 @@ router.post("/", (req, res) => {
 
       main == undefined
         ? res.render("index", {
-            weather: null,
+            weather: nullValue,
             error: "Error, please try again",
           })
-        : res.render("index", { weather, error: null });
+        : res.render("index", { weather, error: nullValue });
     }
   });
 });

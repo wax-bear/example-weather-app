@@ -1,9 +1,6 @@
 const express = require("express");
-const request = require("request");
 
 const app = express();
-
-const apiKey = "40664328cd433cd246010dd987e888fe";
 
 app.set("view engine", "ejs");
 

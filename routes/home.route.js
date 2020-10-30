@@ -15,6 +15,7 @@ router.get("/", (_, res) =>
 router.post("/", (req, res) => {
   const { city } = req.body;
   const url = `${urlOneCityQuery}${city}${urlOneApiKey}${apiKey}`;
+  
   requestWeather(url, res);
 });
 

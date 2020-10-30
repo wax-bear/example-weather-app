@@ -1,6 +1,5 @@
 const request = require("request");
-const nullValue = null;
-const error = "Error, please try again";
+const { nullValue, error } = require("../configs");
 
 exports.requestWeather = (urlString, responseObject) =>
   request(urlString, function (requestErr, _, body) {

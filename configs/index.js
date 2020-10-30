@@ -6,4 +6,5 @@ module.exports = {
   urlTwoLatQuery: "http://api.openweathermap.org/data/2.5/weather?lat=",
   urlTwoLongQuery: "&lon=",
   nullValue: null,
+  error: "Error, please try again",
 };

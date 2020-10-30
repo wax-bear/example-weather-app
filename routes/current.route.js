@@ -4,19 +4,17 @@ const { urlTwoLatQuery, urlTwoLongQuery } = require("../configs");
 const router = Router();
 
 router.post("/current", function (req, res) {
-  let lat = req.body.latitude;
-  let long = req.body.longitude;
-  let url2 = `${urlTwoLatQuery}${lat}${urlTwoLongQuery}${long}`;
+  const { lat, long } = req.body;
+  const url2 = `${urlTwoLatQuery}${lat}${urlTwoLongQuery}${long}`;
 
   request(url, function (err, _, body) {
     if (err) {
       console.log(err);
     } else {
-      let weather = JSON.parse(body);
-      console.log(weather);
-      let weatherText = `It's ${Math.floor(weather.main.temp)} degrees in ${
-        weather.name
-      }!`;
+      const weather = JSON.parse(body);
+      const { main, name } = weather;
+      const { temp } = main;
+      const weatherText = `It's ${Math.floor(temp)} degrees in ${name}!`;
       res.send(weatherText);
     }
   });

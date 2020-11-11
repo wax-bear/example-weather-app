@@ -1,16 +1,17 @@
-const express = require('express');
-const app = express();
-
-const bodyParser = require('body-parser');
+const express = require("express");
+const { port } = require("./configs");
 const indexRouter = require("./routes/index");
 
+const app = express();
+
+app.set("view engine", "ejs");
 app.set('view engine', 'ejs');
 
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
+app.use("/", require("./routes/home.route"));
+app.use("/current", require("./routes/current.route"));
 
-app.listen(4000, function () {
-  console.log('Example app listening on port 4000!');
-});
+app.listen(port, () => console.log(`App is running on port ${port}`));
